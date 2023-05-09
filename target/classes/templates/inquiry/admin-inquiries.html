@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Inquiries - Admin Panel</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+   <div class="container mt-4">
+        <div class="d-flex justify-content-between">
+            <h1 class="mb-0">Inquiries</h1>
+            <a href="/admin" class="btn btn-primary" style="margin-bottom: 10px;">Back to Admin Panel</a>
+        </div>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Parent Name</th>
+                    <th>Your Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Your Query</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    <th:block th:if="${#lists.isEmpty(inquiries)}">
+        <tr>
+            <td colspan="6" class="text-center">No inquiries available right now.</td>
+        </tr>
+    </th:block>
+    <th:block th:unless="${#lists.isEmpty(inquiries)}" th:each="inquiry : ${inquiries}">
+        <tr>
+            <td th:text="${inquiry.parentName}"></td>
+            <td th:text="${inquiry.yourName}"></td>
+            <td th:text="${inquiry.email}"></td>
+            <td th:text="${inquiry.mobile}"></td>
+            <td th:text="${inquiry.yourQuery}"></td>
+            <td>
+                <form method="post" th:action="@{/admin/inquiry/delete}" style="display: inline;">
+                    <input type="hidden" name="id" th:value="${inquiry.id}" />
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </th:block>
+</tbody>
+
+        </table>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html> -->
+<!-- <html xmlns:th="http://www.thymeleaf.org"> -->
+<!-- <head> -->
+<!--     <meta charset="UTF-8" /> -->
+<!--     <title>Inquiries - Admin Panel</title> -->
+<!-- </head> -->
+<!-- <body> -->
+<!--     <h1>Inquiries</h1> -->
+<!--     <table> -->
+<!--         <thead> -->
+<!--             <tr> -->
+<!--                 <th>Parent Name</th> -->
+<!--                 <th>Your Name</th> -->
+<!--                 <th>Email</th> -->
+<!--                 <th>Mobile</th> -->
+<!--                 <th>Your Query</th> -->
+<!--                 <th>Action</th> -->
+<!--             </tr> -->
+<!--         </thead> -->
+<!--         <tbody> -->
+<!--             <tr th:each="inquiry : ${inquiries}"> -->
+<!--                 <td th:text="${inquiry.parentName}"></td> -->
+<!--                 <td th:text="${inquiry.yourName}"></td> -->
+<!--                 <td th:text="${inquiry.email}"></td> -->
+<!--                 <td th:text="${inquiry.mobile}"></td> -->
+<!--                 <td th:text="${inquiry.yourQuery}"></td> -->
+<!--                 <td> -->
+<!--                     <form method="post" th:action="@{/admin/inquiry/delete}" style="display: inline;"> -->
+<!--                         <input type="hidden" name="id" th:value="${inquiry.id}" /> -->
+<!--                         <button type="submit">Delete</button> -->
+<!--                     </form> -->
+<!--                 </td> -->
+<!--             </tr> -->
+<!--         </tbody> -->
+<!--     </table> -->
+<!-- </body> -->
+<!-- </html> -->

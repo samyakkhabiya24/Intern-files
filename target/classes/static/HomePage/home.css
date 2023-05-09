@@ -1,0 +1,27 @@
+table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+      color: #212529;
+      font-size: 0.875rem;
+      background-color: transparent;
+    }
+    th, td {
+      padding: 0.75rem;
+      vertical-align: top;
+      border-top: 1px solid #dee2e6;
+    }
+    th {
+      font-weight: bold;
+      text-align: inherit;
+    }
+    td {
+      text-align: inherit;
+    }
+    tbody tr:nth-of-type(even) {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+    a {
+      color: #0d6efd;
+      text-decoration: none;
+    }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add URL - Creative Corner</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Add URL</h1>
+            <form method="post" th:object="${url}" th:action="@{/admin/creativecorner/add_url}">
+                <div class="form-group">
+                    <label for="url">URL:</label>
+                    <input type="text" id="url" name="url" required th:value="${url.url}" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Add URL</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html> -->
+<!-- <html xmlns:th="http://www.thymeleaf.org"> -->
+<!-- <head> -->
+<!--     <meta charset="UTF-8"> -->
+<!--     <title>Add URL - Creative Corner</title> -->
+<!-- </head> -->
+<!-- <body> -->
+<!-- <h1>Add URL</h1> -->
+<!-- <form method="post" th:object="${url}" th:action="@{/admin/creativecorner/add_url}"> -->
+<!--     <p> -->
+<!--         <label for="url">URL:</label> -->
+<!--         <input type="text" id="url" name="url" required th:value="${url.url}"> -->
+<!--     </p> -->
+<!--     <p> -->
+<!--         <button type="submit">Add URL</button> -->
+<!--     </p> -->
+<!-- </form> -->
+<!-- </body> -->
+<!-- </html> -->
