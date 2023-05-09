@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Student</title>
+</head>
+<body>
+	<h1>Edit Student</h1>
+	<form th:object="${student}" th:action="@{/admin/enrollment/edit/{id} (id=${student.id})}" method="POST">
+		<!-- Name -->
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" th:value="${student.name}" required/><br />
+
+		<!-- Date of Birth -->
+		<label for="dob">Date of Birth:</label>
+		<input type="date" id="dob" name="dateOfBirth" th:value="${student.dateOfBirth}" required/><br />
+
+		<!-- Gender -->
+		<label for="gender">Gender:</label>
+		<select id="gender" name="gender">
+			<option th:value="${student.gender}" th:text="${student.gender}"></option>
+			<option value="Male">Male</option>
+			<option value="Female">Female</option>
+		</select><br />
+
+		<!-- Residential Address -->
+		<label for="resAddress">Residential Address:</label>
+		<input type="text" id="resAddress" name="resAddress" th:value="${student.resAddress}" required/><br />
+
+		<!-- Office Address -->
+		<label for="officeAddress">Office Address:</label>
+		<input type="text" id="officeAddress" name="officeAddress" th:value="${student.officeAddress}" required/><br />
+
+		<!-- Phone Number (Residential) -->
+		<label for="phoneRes">Phone Number (Residential):</label>
+		<input type="text" id="phoneRes" name="phoneRes" th:value="${student.phoneRes}" required/><br />
+
+		<!-- Phone Number (Office) -->
+		<label for="phoneOff">Phone Number (Office):</label>
+		<input type="text" id="phoneOff" name="phoneOff" th:value="${student.phoneOff}" required/><br />
+
+		<!-- Mobile Number -->
+		<label for="mobile">Mobile Number:</label>
+		<input type="text" id="mobile" name="mobile" th:value="${student.mobile}" required/><br />
+
+		<!-- Email Address -->
+		<label for="email">Email Address:</label>
+		<input type="text" id="email" name="email" th:value="${student.email}" required/><br />
+
+		<!-- Qualification -->
+		<label for="qualification">Qualification:</label>
+		<input type="text" id="qualification" name="qualification" th:value="${student.qualification}" required/><br />
+
+		<!-- Course Enrolled -->
+		<label for="courseEnrolled">Course Enrolled:</label>
+		<input type="text" id="courseEnrolled" name="courseEnrolled" th:value="${student.courseEnrolled}" required/><br />
+
+		<!-- Start Date -->
+		<label for="startDate">Start Date:</label>
+		<input type="date" id="startDate" name="startDate" th:value="${student.startDate}" required/><br />
+
+		<!-- Start Time -->
+		<label for="startTime">Start Time:</label>
+		<input type="time" id="startTime" name="startTime" th:value="${student.startTime}" required/><br />
+
+		<!-- Payment Method -->
+<label for="paymentMethod">Payment Method:</label>
+<select id="paymentMethod" name="paymentMethod">
+    <option value="Cash" th:selected="${student.paymentMethod == 'Cash'}">Cash</option>
+    <option value="Cheque" th:selected="${student.paymentMethod == 'Cheque'}">Cheque</option>
+    <option value="Demand Draft" th:selected="${student.paymentMethod == 'Demand Draft'}">Demand Draft</option>
+</select><br/>
+
+<label for="paymentMethod">Payment Method:</label>
+<select id="paymentMethod" name="paymentMethod">
+    <option value="Cash" th:selected="${student.paymentMethod == T(com.db.courseproject.classes.Student$PaymentMethod).Cash}">Cash</option>
+    <option value="Cheque" th:selected="${student.paymentMethod == T(com.db.courseproject.classes.Student$PaymentMethod).Cheque}">Cheque</option>
+    <option value="Demand_Draft" th:selected="${student.paymentMethod == T(com.db.courseproject.classes.Student$PaymentMethod).Demand_Draft}">Demand Draft</option>
+</select><br/>
+
+<!-- Amount -->
+<label for="amount">Amount:</label>
+<input type="number" id="amount" name="amount" th:value="${student.amount}" required/><br/>
+
+<!-- Bank Name -->
+<label for="bankName">Bank Name:</label>
+<input type="text" id="bankName" name="bankName" th:value="${student.bankName}" required/><br/>
+
+<!-- Cheque/DD Number -->
+<label for="chequeDdNo">Cheque/DD Number:</label>
+<input type="text" id="chequeDdNo" name="chequeDdNo" th:value="${student.chequeDdNo}" required/><br/>
+
+<!-- Cheque/DD Date -->
+<label for="chequeDdDate">Cheque/DD Date:</label>
+<input type="date" id="chequeDdDate" name="chequeDdDate" th:value="${student.chequeDdDate}" required/><br/>
+
+<!-- Agreement -->
+<label for="agreement">Agreement:</label>
+<input type="checkbox" id="agreement" name="agreement" th:checked="${student.agreement}" required/><br/>
+
+
+
+<button type="submit">Update Student</button>
+</form>
+</body>
+</html>
+
