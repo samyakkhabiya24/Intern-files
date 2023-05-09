@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel - Creative Corner</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-4">Admin Panel</h1>
+    <p>
+        <a class="btn btn-primary mb-3" href="/admin/creativecorner/add_url">Add URL</a>
+        <a href="/admin" class="btn btn-primary float-right">Back to Admin Panel</a>
+    </p>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>URL</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="url : ${urls}">
+            <td>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" th:src="${url.url}" allowfullscreen></iframe>
+                </div>
+            </td>
+            <td>
+                <a class="btn btn-outline-primary btn-sm mr-1" th:href="@{/admin/creativecorner/edit_url/{id}(id=${url.id})}">Edit</a>
+                <a class="btn btn-outline-danger btn-sm" th:href="@{/admin/creativecorner/delete_url/{id}(id=${url.id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/XpG5STX/k17Eyn"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html> -->
+<!-- <html xmlns:th="http://www.thymeleaf.org"> -->
+<!-- <head> -->
+<!--     <meta charset="UTF-8"> -->
+<!--     <title>Admin Panel - Creative Corner</title> -->
+<!-- </head> -->
+<!-- <body> -->
+<!-- <h1>Admin Panel</h1> -->
+<!-- <p> -->
+<!--     <a href="/admin/creativecorner/add_url">Add URL</a> -->
+<!-- </p> -->
+<!-- <table> -->
+<!--     <thead> -->
+<!--     <tr> -->
+<!--         <th>URL</th> -->
+<!--         <th>Actions</th> -->
+<!--     </tr> -->
+<!--     </thead> -->
+<!--     <tbody> -->
+<!--     <tr th:each="url : ${urls}"> -->
+<!--         <td> -->
+<!--             <iframe th:src="${url.url}" width="300" height="200" frameborder="0" allowfullscreen></iframe> -->
+<!--         </td> -->
+<!--         <td> -->
+<!--             <a th:href="@{/admin/creativecorner/edit_url/{id}(id=${url.id})}">Edit</a> -->
+<!--             <a th:href="@{/admin/creativecorner/delete_url/{id}(id=${url.id})}">Delete</a> -->
+<!--         </td> -->
+<!--     </tr> -->
+<!--     </tbody> -->
+<!-- </table> -->
+<!-- </body> -->
+<!-- </html> -->

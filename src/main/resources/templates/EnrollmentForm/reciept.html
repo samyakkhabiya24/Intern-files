@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Receipt</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <h3 class="mb-4">Receipt</h3>
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Name:</strong> [[${student.name}]]</li>
+                    <li class="list-group-item"><strong>Date of Birth:</strong> [[${student.dateOfBirth}]]</li>
+                    <li class="list-group-item"><strong>Gender:</strong> [[${student.gender}]]</li>
+                    <li class="list-group-item"><strong>Residential Address:</strong> [[${student.resAddress}]]</li>
+                    <li class="list-group-item"><strong>Phone (Res):</strong> [[${student.phoneRes}]]</li>
+                    <li class="list-group-item"><strong>Mobile:</strong> [[${student.mobile}]]</li>
+                    <li class="list-group-item"><strong>Email:</strong> [[${student.email}]]</li>
+                    <li class="list-group-item"><strong>Qualification:</strong> [[${student.qualification}]]</li>
+                    <li class="list-group-item"><strong>Course Enrolled:</strong> [[${student.courseEnrolled}]]</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3 class="mb-4">Payment Details</h3>
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Payment Method:</strong> [[${student.paymentMethod}]]</li>
+                    <li class="list-group-item"><strong>Amount:</strong> [[${student.amount}]]</li>
+                    <li class="list-group-item" th:if="${student.paymentMethod.toString() == 'CHEQUE'}"><strong>Bank Name:</strong> [[${student.bankName}]]</li>
+                    <li class="list-group-item" th:if="${student.paymentMethod.toString() == 'CHEQUE'}"><strong>Cheque/DD No:</strong> [[${student.chequeDdNo}]]</li>
+                    <li class="list-group-item" th:if="${student.paymentMethod.toString() == 'CHEQUE'}"><strong>Cheque/DD Date:</strong> [[${student.chequeDdDate}]]</li>
+					<li class="list-group-item"><strong>Agreement:</strong> Accepted</li>
+                    <li class="list-group-item"><strong>Date Applied:</strong> [[${student.dateApplied}]]</li>
+                    <li class="list-group-item"><strong>Start Date:</strong> [[${student.startDate}]]</li>
+                    <li class="list-group-item"><strong>Start Time:</strong> [[${student.startTime}]]</li>
+                    <li class="list-group-item"><strong>Phone (Off):</strong> [[${student.phoneOff}]]</li>
+                    <li class="list-group-item"><strong>Office Address:</strong> [[${student.officeAddress}]]</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

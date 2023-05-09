@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Course</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Edit Course</h2>
+    <form th:if="${course != null}" th:action="@{/admin/courses/{id}(id=${course.id})}" method="post">
+        <input type="hidden" name="_method" value="put" />
+        <div class="form-group">
+            <label for="courseTitle">Title:</label>
+            <input type="text" name="courseTitle" th:value="${course.courseTitle}" class="form-control" required/>
+        </div>
+        <div class="form-group">
+            <label for="youtubeLink">Image Link:</label>
+            <input type="text" name="youtubeLink" th:value="${course.youtubeLink}" class="form-control" required/>
+        </div>
+        <div class="form-group">
+            <label for="courseDescription">Description:</label>
+            <textarea name="courseDescription" th:text="${course.courseDescription}" class="form-control" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="ageGroup">Age Group:</label>
+            <input type="text" name="ageGroup" th:value="${course.ageGroup}" class="form-control" required/>
+        </div>
+        <div class="form-group">
+            <label for="courseDuration">Duration:</label>
+            <input type="number" name="courseDuration" th:value="${course.courseDuration}" class="form-control" required/>
+        </div>
+        <div class="form-group">
+            <label for="courseFee">Fee:</label>
+            <input type="number" step="0.01" name="courseFee" th:value="${course.courseFee}" class="form-control" required/>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html> -->
+<!-- <html xmlns:th="http://www.thymeleaf.org"> -->
+<!-- <head> -->
+<!-- <meta charset="ISO-8859-1"> -->
+<!-- <title>Edit Course</title> -->
+<!-- </head> -->
+<!-- <body> -->
+
+<!-- <h2>Edit Course</h2> -->
+<!--     <form th:if="${course != null}" th:action="@{/admin/courses/{id}(id=${course.id})}" method="post"> -->
+<!--         <input type="hidden" name="_method" value="put" /> -->
+<!--         <input type="text" name="courseTitle" th:value="${course.courseTitle}" required/><br /> -->
+<!--         <input type="text" name="youtubeLink" th:value="${course.youtubeLink}" required/><br /> -->
+<!--         <textarea name="courseDescription" th:text="${course.courseDescription}"></textarea><br /> -->
+<!--         <input type="text" name="ageGroup" th:value="${course.ageGroup}" required/><br /> -->
+<!--         <input type="number" name="courseDuration" th:value="${course.courseDuration}" required/><br /> -->
+<!--         <input type="number" step="0.01" name="courseFee" th:value="${course.courseFee}" required/><br /> -->
+<!--         <button type="submit">Save</button> -->
+<!--     </form> -->
+
+<!-- </body> -->
+<!-- </html> -->
